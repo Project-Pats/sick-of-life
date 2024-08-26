@@ -1,0 +1,30 @@
+body {
+  background-image: url('/img.69f82160.webp');
+  background-color: rgb(58, 110, 165);
+  margin: 0;
+  padding: 0;
+}
+#app {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
+
+#controls {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  bottom: 10px;
+  visibility: hidden; /* Hide the controls */
+  pointer-events: none; /* Prevent interaction with hidden controls */
+}
+
+#current-track {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 10px 0;
+}
+
+
+/*# sourceMappingURL=/styles.dd855970.css.map */
