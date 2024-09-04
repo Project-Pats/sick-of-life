@@ -51,9 +51,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col justify-center items-center min-h-screen bg-black text-white">
-      <div className="mb-8 text-6xl font-bold">
-        Time Left: {formatTime(timeLeft)}
-      </div>
+      <div className="mb-8 text-6xl font-bold">{formatTime(timeLeft)}</div>
 
       <pre className="font-mono text-xs leading-[1]">
         {`  ░░      ░░        ░░░░    ▓▓██████████████████████████                              
