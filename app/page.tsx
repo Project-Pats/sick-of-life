@@ -1,6 +1,60 @@
+"use client";
+import { useState, useEffect } from "react";
+
 export default function Home() {
+  const [timeLeft, setTimeLeft] = useState(0);
+
+  useEffect(() => {
+    const getEndTime = () => {
+      let endTime = localStorage.getItem("countdownEndTime");
+      if (!endTime) {
+        // If no end time is saved, set it to 24 hours from now
+        endTime = (Math.floor(Date.now() / 1000) + 24 * 60 * 60).toString();
+        localStorage.setItem("countdownEndTime", endTime);
+      }
+      return parseInt(endTime, 10);
+    };
+
+    const calculateTimeLeft = () => {
+      const now = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
+      const endTime = getEndTime();
+      const difference = endTime - now;
+
+      if (difference <= 0) {
+        // If the countdown is finished, start a new 24-hour period
+        const newEndTime = now + 24 * 60 * 60;
+        localStorage.setItem("countdownEndTime", newEndTime.toString());
+        return 24 * 60 * 60;
+      }
+
+      return difference;
+    };
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    // Initial calculation
+    setTimeLeft(calculateTimeLeft());
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatTime = (time: number) => {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = time % 60;
+    return `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  };
+
   return (
-    <main className="flex justify-center items-center min-h-screen bg-black text-white">
+    <main className="flex flex-col justify-center items-center min-h-screen bg-black text-white">
+      <div className="mb-8 text-6xl font-bold">
+        Time Left: {formatTime(timeLeft)}
+      </div>
+
       <pre className="font-mono text-xs leading-[1]">
         {`  ░░      ░░        ░░░░    ▓▓██████████████████████████                              
 ░░░░██▓▓▓▓              ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░████                          
