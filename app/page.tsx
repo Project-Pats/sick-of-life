@@ -1,7 +1,10 @@
+import Component from "./Component";
+
 export default function Home() {
   return (
     <main className="flex flex-col justify-center items-center min-h-screen bg-black text-white">
-      <pre className="font-mono text-xs leading-[1]">
+      <Component />
+      {/* <pre className="font-mono text-xs leading-[1]">
         {`  ░░      ░░        ░░░░    ▓▓██████████████████████████                              
 ░░░░██▓▓▓▓              ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░████                          
 ░░▓▓░░░░▒▒████▓▓    ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██▓▓                      
@@ -76,7 +79,7 @@ export default function Home() {
                             ██▒▒▒▒▒▒▒▒▓▓  ▓▓▒▒▒▒▒▒▒▒██                                
                             ░░██▓▓▓▓██▓▓░░▓▓▓▓▓▓▓▓██░░                                
 `}
-      </pre>
+      </pre> */}
     </main>
   );
 }
