@@ -4,27 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Header from "./Header";
-
+import AudioPlayer from "./AudioPlayer";
 export default function Component() {
   const [message, setMessage] = useState("");
 
   return (
-    <div className="min-h-screen bg-black text-gray-300 p-8 flex justify-center">
-      <div className="max-w-2xl w-full">
-        <Header />
-
-        <div className="flex space-x-4 mb-8">
-          <Button variant="outline" size="sm">
-            about me
-          </Button>
-          <Button variant="ghost" size="sm">
-            blog
-          </Button>
-          <Button variant="ghost" size="sm">
-            services
-          </Button>
-        </div>
-
+    <div className="min-h-screen lex justify-center">
+      <div className="w-full">
         <div className="grid grid-cols-2 gap-8 mb-8">
           <section>
             <h2 className="text-2xl font-semibold mb-4"># hobbies</h2>
@@ -54,7 +40,7 @@ export default function Component() {
             <li>- timezone: gmt+4 (18:16:11)</li>
             <li>- languages: en-US, ru-RU</li>
             <li>- location: georgia</li>
-            <li>- e-mail: jsopn@cock.ceo</li>
+            <li>- e-mail: </li>
             <li>
               - pgp fingerprint: ED63 0449 995C CA06 20E2 FF36 73A1 046C 20A5
               E014
@@ -100,6 +86,7 @@ export default function Component() {
             </Button>
           </div>
         </section>
+        <AudioPlayer src="/audio.flac" />
       </div>
     </div>
   );
